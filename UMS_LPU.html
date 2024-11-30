@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+
+<html>
+<head><title>
+	UMS | Lovely Professional University | University Management System
+</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta charset="utf-8"/><meta content="UMS - University Management System is LPU on-line portico for students and staff to access details of Academic Affairs, Attendance, Examination, Everyday Announcement and Events with one click." name="description"/><meta content="UMS, LPU, UMS Login, University Management System, Lovely Professional University" name="keywords"/><meta content="global" name="distribution"/><meta content="LPU is copyright 2005-2023" name="copyright"/><meta content="General" name="rating"/><meta content="En" name="language"/>
+<noscript>
+<div style="position: fixed; top: 0px; left: 0px; z-index: 3000; height: 100%; width: 100%; background-color: rgba(0,0,0,.6); padding-top: 15%; text-align: center; font-family: Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana,' sans-serif'; font-size: 20px;">
+<div style="display: inline-block; background-color: rgba(255,255,255,.7); padding: 45px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;">
+<img alt="" src="pictures/seal.svg"/>
+<hr style="border: solid 1px #ACACAC"/>
+<p style="margin-left: 10px">JavaScript of your browser is not enabled.please enable it first to access UMS</p>
+<p style="margin-left: 10px">How to enable Javascript : visit this link to step by step help </p>
+<p style="margin-left: 10px"><a href="http://activatejavascript.org/en/instructions" style="background-color: #337ab7; border-bottom-color: #2e6da4; border-left-color: #2e6da4; border-right-color: #2e6da4; border-top-color: #2e6da4; color: #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 5px 10px; text-decoration: none">Click Here </a></p>
+</div>
+</div>
+</noscript>
+<link href="assets/login/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="assets/login/css/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="assets/login/css/fonts/flaticon/font/flaticon.css" rel="stylesheet" type="text/css"/><link href="assets/login/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/><link href="assets/login/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+<style>
+        .otp-field {
+            display: flex;
+        }
+
+            .otp-field input {
+                width: 55px;
+                font-size: 22px;
+                padding: 20px;
+                text-align: center;
+                border-radius: 5px;
+                margin: 2px;
+                border: 2px solid #55525c;
+                background: #21232d;
+                font-weight: bold;
+                color: #fff;
+                outline: none;
+                transition: all 0.1s;
+            }
+
+                .otp-field input:focus {
+                    border: 2px solid #a527ff;
+                    box-shadow: 0 0 2px 2px #a527ff6a;
+                }
+
+        .disabled {
+            opacity: 0.5;
+        }
+
+        #MyPopup .mbody {
+            max-width: 100% !important;
+        }
+    </style>
+<!-- CSS for transitioning -->
+<style>
+        .screen {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+            .screen.active {
+                display: block;
+                opacity: 1;
+            }
+    </style>
+<!-- Favicon icon -->
+<link href="assets/login/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/><link href="assets/login/css/css2.css" rel="stylesheet"/>
+<!-- Custom Stylesheet -->
+<link href="assets/login/css/style.css" rel="stylesheet" type="text/css"/>
+<script src="assets/login/js/jquery-3.6.0.min.js"></script>
+<script src="assets/login/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/login/js/sweetalert2.all.min.js"></script>
+<script crossorigin="anonymous" src="assets/login/js/popper.min.js"></script>
+<link href="Assets/login/slick/slick.css" rel="stylesheet"/><link href="Assets/login/slick/slick-theme.css" rel="stylesheet"/>
+<script type="text/javascript">
+
+        function DisplayAlert(msg) {
+
+            Swal.fire({
+                title: 'UMS',
+                html: msg
+            })
+
+        }
+    </script>
+<script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-67701680-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+<link href="/LpuUms/WebResource.axd?d=hcXDZhXiidgsQUtEo5iT30fH_dTYDJUgFegb7-OjNfbaQmVWpu3cDkxUMKjwNiV26XKE3ffGhHaDWe8_gl82smMyhxAn_O3W9R8ngAK4TWN8JwnOGFVpG-GuPuE707yFoErQccaLd8iNQTYtTb09Ca2vudHGD-czGQaFG1p9q4k1&amp;t=638259930712226080" rel="stylesheet" type="text/css"/></head>
+<body id="top">
+<div class="main-container" style="display: flex; height: 110vh; width: 100%;">
+
+<!-- Left Panel -->
+<div class="left-panel" id="carousel-wallpaper"
+    style="
+    flex: 1; 
+    background-image: url('{{ url_for('static', filename='pictures/left.jpg') }}'); 
+    background-size: cover; 
+    height: 110vh;
+    width: 100vh;
+    background-position: center; 
+    background-repeat: no-repeat;
+    transition-style: ease-in-out;
+    border: 1px solid rgb(255,255,255); 
+    box-sizing: border-box;
+    ">
+</div>
+
+
+
+
+<!-- Right Panel -->
+<div class="right-panel" style="flex: 1; background-color: #f7f1f1; padding: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div class="logo-container" style="margin-top: 40px;">
+<img alt="UMS Logo" src="{{ url_for('static', filename='pictures/seal.svg') }}" style="width: 85px; margin-bottom: 30px; padding-right: 15px;"/>
+<img alt="THE Logo" src="{{ url_for('static', filename='pictures/ums_logo1.svg') }}" style="width: 360px; margin-bottom: 50px; padding-left: 15px;"/>
+</div>
+<div style="background-color: #ffffff; padding: 25px; border-radius: 5px; box-shadow: 0 6px 6px 6px rgba(0.1, 0.1, 0.1, 0.1); width: 480px; height: 440px; text-align: center;">
+<form action="/submit" method="POST" onsubmit="showLoading()" style="display: flex; flex-direction: column; gap: 25px; width: 100%; max-width: 500px;">
+<div class="form-group">
+<label for="dropdown" style="font-size: 24px; padding-right: 19px; font-family: sans-serif;">Log in</label>
+<select class="form-control" style="font-size:medium; padding: 14.5px 50px 14.5px 25px; width: 320px; height: 55px; border-style: hidden; background-color:rgba(248, 218, 218, 0.5); border-radius: 4px;" id="dropdown" name="dropdown" required="">
+<option value="HeadOffice">HeadOffice</option>
+<option value="others">Others</option>
+</select>
+</div>
+<div class="form-group">
+<input class="form-control" style="font-size: medium; border-style: hidden; background-color: rgba(248, 218, 218, 0.5); padding: 14.5px 50px 14.5px 25px; width: 330px; height: 30px; border-radius: 4px;" id="txtU" name="txtU" placeholder="User ID" required="" type="text"/>
+</div>
+<div class="form-group">
+    <input class="form-control" style="font-size: medium; border-style: hidden; background-color: rgba(248, 218, 218, 0.5); padding: 14.5px 50px 14.5px 25px; width: 330px; height: 30px; border-radius: 4px;" id="TxtpwdAutoId_8767" name="TxtpwdAutoId_8767" placeholder="Password" required="" type="password"/>
+</div>
+<div class="form-group" style="position: relative;">
+<select class="form-control" style="font-size: medium; border-style: hidden; background-color: rgba(248, 218, 218, 0.5); padding: 14.5px 50px 14.5px 25px; width: 406px; height: 60px; border-radius: 4px;" id="dashboard" name="dashboard" required="">
+<option value="Dashboard">Dashboard</option>
+<option value="Hostel Booking">Hostel Booking</option>
+<option value="default3.aspx">Home Page</option>
+<option value="Assignment Upload">Assignment Upload</option>
+<option value="Dashboard">View Residential Reporting Slip</option>
+<option value="Hostel Booking">View Time Table</option>
+<option value="Dashboard">Result</option>
+</select>
+</div>
+<div class="form-footer" style="text-align: center; padding-left: 180px ; margin-top: 5px;">
+    <a href="#" style="font-family: sans-serif; color: #181818b5; text-decoration: none; padding-left: 75px;">Forgot your password?</a>
+</div>
+<div class="form-group">
+<button class="btn btn-primary" style="font-size: medium; padding: 14.5px 50px 14.5px 25px; width: 406px; height: 60px; background-color: #eda01a; border-radius: 4px; border-style: hidden; color: #fff;" type="submit">Login</button>
+</div>
+</form>
+
+<div id="loading-overlay" class="loading-overlay" style="display:none;">
+    <div class="loader"></div>
+</div>
+</div>
+<div class="mail" style="display: flex;">
+    <div>
+        <img href="http://www.outlook.com/" src="{{ url_for('static', filename='pictures/mail-icon.svg') }}" style="margin-top: 20px; width: 31px;" alt=" mail-icon">
+    </div>
+    <a style="font-size: 17px; padding: 25px 20px 20px 20px; font-family: sans-serif;">Student Mail                            
+</a></div>
+</div>
+</body>
+<script>
+    // Add event listeners for specific input fields by their IDs
+    document.getElementById("txtU").addEventListener("focus", () => {
+        document.getElementById("txtU").style.backgroundColor = "#e6f7ff"; // Light blue
+    });
+
+    document.getElementById("txtU").addEventListener("blur", () => {
+        const input = document.getElementById("txtU");
+        if (input.value.trim() !== "") {
+            input.style.backgroundColor = "#f8da7680"; // Light green if filled
+        } else {
+            input.style.backgroundColor = "#f8dada80"; // Light red if empty
+        }
+    });
+
+    document.getElementById("TxtpwdAutoId_8767").addEventListener("focus", () => {
+        document.getElementById("TxtpwdAutoId_8767").style.backgroundColor = "#e6f7ff"; // Light blue
+    });
+
+    document.getElementById("TxtpwdAutoId_8767").addEventListener("blur", () => {
+        const input = document.getElementById("TxtpwdAutoId_8767");
+        if (input.value.trim() !== "") {
+            input.style.backgroundColor = "#f8da7680"; // Light green if filled
+        } else {
+            input.style.backgroundColor = "#f8dada80"; // Light red if empty
+        }
+    });
+    function showLoading() {
+            // Show the loading overlay with spinner
+            document.getElementById('loading-overlay').style.display = "flex";
+        }
+    // Array of image paths
+    const images = [
+        "{{ url_for('static', filename='pictures/left.jpg') }}",
+        "{{ url_for('static', filename='pictures/left2.png') }}",
+        "{{ url_for('static', filename='pictures/left3.jpg') }}",
+    ];
+
+    // Get the carousel div
+    const carousel = document.getElementById("carousel-wallpaper");
+
+    // Initialize image index
+    let currentIndex = 0;
+
+    // Function to change the background image
+    function changeBackground() {
+        carousel.style.backgroundImage = `url('${images[currentIndex]}')`;
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+    }
+
+    // Set interval to change images every 4 seconds
+    setInterval(changeBackground, 3000);
+
+    // Initial call to set the first image
+    changeBackground();
+</script>
+</html>
+<!--find the errors and give me the code which needs to be replaced with the error containing code.-->
